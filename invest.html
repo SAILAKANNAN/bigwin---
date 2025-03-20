@@ -6,173 +6,237 @@
     <title>Investment Page</title>
     <style>
       /* Your existing CSS */
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #f0f2f5;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
+    /* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-      .header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background-color: #eef5ff;
-        padding: 10px 0;
-        display: flex;
-        justify-content: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-      }
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #eef5ff;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
 
-      .header-tab {
-        margin: 0 15px;
-        padding: 10px 20px;
-        color: #fff;
-        background-color: #ffcc00;
-        border-radius: 20px;
-        font-weight: bold;
-        cursor: pointer;
-        font-size: 18px;
-      }
+.header-tab {
+  margin: 0 15px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #ffcc00;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+}
 
-      .header-tab.inactive {
-        background-color: #c2d3ff;
-        color: #7b8ba1;
-      }
+.header-tab.inactive {
+  background-color: #c2d3ff;
+  color: #7b8ba1;
+}
 
-      .content {
-        flex: 1;
-        padding: 20px;
-        margin-top: 80px;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        position: relative;
-      }
+.content {
+  flex: 1;
+  padding: 20px;
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
 
-      .investment-container {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        width: 100%;
-        max-width: 100%;
-        padding: 20px;
-        box-sizing: border-box;
-        overflow-y: auto;
-        position: relative;
-      }
+.investment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  position: relative;
+}
 
-      .investment-card {
-        background-color: #fff;
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
-        font-size: 16px;
-        position: relative;
-        overflow: hidden;
-      }
+.investment-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+}
 
-      .investment-card h2 {
-        font-size: 24px;
-        margin-bottom: 15px;
-        font-weight: bold;
-      }
+.investment-card h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
 
-      .investment-card p {
-        margin: 5px 0;
-        color: #555;
-        font-size: 18px;
-      }
+.investment-card p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 18px;
+}
 
-      .investment-card .value {
-        font-weight: bold;
-        font-size: 20px;
-        float: right;
-      }
+.investment-card .value {
+  font-weight: bold;
+  font-size: 20px;
+  float: right;
+}
 
-      .investment-card .state {
-        color: green;
-        font-weight: bold;
-      }
+.investment-card .state {
+  color: green;
+  font-weight: bold;
+}
 
-      .investment-card .vip-level {
-        display: flex;
-        align-items: center;
-        margin-top: 10px;
-      }
+.investment-card .vip-level {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
 
-      .investment-card .vip-level img {
-        margin-right: 5px;
-      }
+.investment-card .vip-level img {
+  margin-right: 5px;
+}
 
-      .investment-card .invest-now {
-        display: block;
-        margin-top: 20px;
-        color: #007bff;
-        font-weight: bold;
-        text-decoration: none;
-        font-size: 18px;
-      }
+.investment-card .invest-now {
+  display: block;
+  margin-top: 20px;
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+}
 
-      .investment-card .background-image {
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 25%;
-        height: 100%;
-        opacity: 0.8;
-        object-fit: cover;
-        z-index: -1;
-      }
+.investment-card .background-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  opacity: 0.8;
+  object-fit: cover;
+  z-index: -1;
+}
 
-      .footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background: linear-gradient(to right, #1a508b, #1d87cb);
-        display: flex;
-        justify-content: space-around;
-        padding: 15px 0;
-        z-index: 1000;
-      }
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to right, #1a508b, #1d87cb);
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+  z-index: 1000;
+}
 
-      .footer-item {
-        color: white;
-        text-align: center;
-        flex: 1;
-        font-size: 16px;
-      }
+.footer-item {
+  color: white;
+  text-align: center;
+  flex: 1;
+  font-size: 16px;
+}
 
-      .footer-item img {
-        width: 24px;
-        height: 24px;
-        margin-bottom: 5px;
-      }
+.footer-item img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 5px;
+}
 
-      .footer-item span {
-        display: block;
-        font-size: 16px;
-      }
+.footer-item span {
+  display: block;
+  font-size: 16px;
+}
 
-      @media screen and (max-width: 768px) {
-        .investment-card {
-          width: 90%;
-          max-width: 90%;
-        }
-      }
+/* Mobile-specific adjustments */
+@media screen and (max-width: 768px) {
+  .header-tab {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
 
-      @media screen and (max-width: 480px) {
-        .investment-card {
-          width: 90%;
-          max-width: 90%;
-        }
-      }
+  .content {
+    margin-top: 60px;
+    padding: 10px;
+  }
+
+  .investment-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align all cards */
+    gap: 15px; /* Consistent gap between cards */
+  }
+
+  .investment-card {
+    width: 90%; /* Set a consistent width for all cards */
+    max-width: 90%; /* Ensure cards don't exceed this width */
+    padding: 15px;
+    box-sizing: border-box; /* Include padding in the width calculation */
+    margin: 0; /* Remove default margin */
+  }
+
+  .investment-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px; /* Consistent spacing */
+  }
+
+  .investment-card p {
+    font-size: 16px;
+    margin: 5px 0; /* Consistent spacing */
+  }
+
+  .investment-card .value {
+    font-size: 18px;
+  }
+
+  .investment-card .invest-now {
+    font-size: 16px;
+    margin-top: 15px; /* Consistent spacing */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .investment-container {
+    padding: 5px; /* Reduce padding for smaller screens */
+    gap: 10px; /* Reduce gap for smaller screens */
+  }
+
+  .investment-card {
+    width: 95%; /* Slightly wider cards for very small screens */
+    max-width: 95%;
+    padding: 10px;
+  }
+
+  .investment-card h2 {
+    font-size: 18px;
+  }
+
+  .investment-card p {
+    font-size: 14px;
+  }
+
+  .investment-card .value {
+    font-size: 16px;
+  }
+
+  .investment-card .invest-now {
+    font-size: 14px;
+  }
+}
     </style>
   </head>
   <body>
